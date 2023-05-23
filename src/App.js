@@ -4,7 +4,7 @@ import { MesonToButton } from '@mesonfi/to'
 import Completed from './Completed'
 
 import icon from './icon.png'
-import popup from './popup.jpg'
+import popup from './popup.png'
 import apps from './apps.json'
 
 export default function App() {
