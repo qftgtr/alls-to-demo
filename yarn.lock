@@ -1757,8 +1757,8 @@
 
 "@mesonfi/to@^0.3.3":
   version "0.3.3"
-  resolved "https://npm.pkg.github.com/download/@mesonfi/to/0.3.3/ff30da641dfed7c78eb820441eac32d4cf42b356#ff30da641dfed7c78eb820441eac32d4cf42b356"
-  integrity sha512-67lEHUeCoqQNXwbMOCVshVCqNWJeckUpnwfgO1bSeu6Qsa6WqKc00pwq/NxbMPiUrE6Ox2bJJKEI3f3t24WNaQ==
+  resolved "https://npm.pkg.github.com/download/@mesonfi/to/0.3.3/42bb8e094e81ef8870f1c82cebad0b7dd5325a56#42bb8e094e81ef8870f1c82cebad0b7dd5325a56"
+  integrity sha512-R2FUGjxfqGY/tbJRq6ETGKlH+/NUMRU51NGVuU17aEZXNrEDlrWw6t3bpTCk3Zk+myqz8mwEB6STOOUzlEd8ZQ==
 
 "@noble/hashes@1.1.2":
   version "1.1.2"
