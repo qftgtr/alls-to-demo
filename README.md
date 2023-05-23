@@ -1,1 +1,1 @@
-# A demo app using meson.to
+# A demo app using AllsTo

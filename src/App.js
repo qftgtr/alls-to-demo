@@ -3,33 +3,19 @@ import { MesonToButton } from '@mesonfi/to'
 
 import Completed from './Completed'
 
-import { ReactComponent as MesonIcon } from './meson.svg'
+import icon from './icon.png'
 import popup from './popup.jpg'
 import apps from './apps.json'
 
 export default function App() {
-  const [appId, appInfo, host, isTestnet] = React.useMemo(() => {
-    if (window.location.pathname === '/cubic') {
-      const appInfo = apps.find(app => app.id === 'cubic')
-      return ['cubic', appInfo, 'testnet', true]
-    }
-
-    if (window.location.pathname === '/sprintcheckout') {
-      const appInfo = apps.find(app => app.id === 'sprintcheckout')
-      return ['sprintcheckout', appInfo, 'testnet', true]
-    }
-
-    if (window.location.pathname === '/hinkal') {
-      const appInfo = apps.find(app => app.id === 'hinkal')
-      return ['hinkal', appInfo, 'testnet', true]
+  const [to, appInfo] = React.useMemo(() => {
+    if (window.location.pathname === '/myshell') {
+      const appInfo = apps.find(app => app.id === 'myshell')
+      return [{ id: 'myshell', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
     }
 
     const appInfo = apps[0]
-    if (window.location.pathname === '/goledo') {
-      return ['goledo', appInfo]
-    } else {
-      return ['demo', appInfo]
-    }
+    return ['demo', appInfo]
   }, [])
 
   const [data, setData] = React.useState(null)
@@ -55,7 +41,7 @@ export default function App() {
         </div>
 
         <div className='md:row-span-4 md:col-span-2 flex flex-col items-center p-5'>
-          <img className='w-[320px] md:w-[280px] md:min-w-[280px] lg:w-[320px] border-[0.5px] border-[#d2d6d6] rounded-xl shadow-[0_5px_40px_-10px_rgba(0,0,0,0.2)]' src={popup} alt='meson.to popup' />
+          <img className='w-[320px] md:w-[280px] md:min-w-[280px] lg:w-[320px] border-[0.5px] border-[#d2d6d6] rounded-xl shadow-[0_5px_40px_-10px_rgba(0,0,0,0.2)]' src={popup} alt='AllsTo popup' />
         </div>
 
         <div className='md:col-span-3 mt-3 md:mt-8 md:pr-8 flex flex-col items-start'>
@@ -74,8 +60,9 @@ export default function App() {
           </div>
           <div>
             <MesonToButton
-              appId={appId}
-              host={host}
+              type='iframe'
+              to={to}
+              host='https://t.alls.to'
               onCompleted={setData}
               className='mt-4 lg:mt-6'
             >
@@ -83,7 +70,7 @@ export default function App() {
             </MesonToButton>
           </div>
           <div className='mt-3'>
-            <Completed isTestnet={isTestnet} appId={appId} appName={appInfo?.name} data={data} />
+            <Completed appName={appInfo?.name} data={data} />
           </div>
         </div>
       </div>
@@ -91,8 +78,8 @@ export default function App() {
       <div className='flex-1' />
       <div className='self-center my-4 flex items-center text-gray-400 text-sm'>
         Powered by
-        <a className='opacity-50 hover:opacity-80' href='https://meson.fi' target='_blank' rel="noreferrer">
-          <MesonIcon className='ml-1.5 w-[80px]' />
+        <a className='opacity-50 hover:opacity-80' href='https://alls.to' target='_blank' rel="noreferrer">
+          <img className='ml-1.5 w-[72px]' src={icon} />
         </a>
       </div>
     </div>
